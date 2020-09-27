@@ -1,14 +1,17 @@
-package com.teste.album.model
+package com.teste.album.model.repository
 
+import com.teste.album.di.RemoteDataSource
 import com.teste.album.model.data.Album
-import com.teste.album.model.remote.RetrofitAlbums
-import com.teste.album.model.remote.ServiceBuilder
 import retrofit2.Response
+import javax.inject.Inject
 
-class Repository {
-    private val service = ServiceBuilder.buildService(RetrofitAlbums::class.java)
+class Repository @Inject constructor() {
+
+    @Inject
+    @RemoteDataSource
+    lateinit var remoteDataSource: AlbumDataSource
 
     suspend fun getAlbums(): Response<List<Album>> {
-        return service.getAlbums()
+        return remoteDataSource.getAlbums()
     }
 }

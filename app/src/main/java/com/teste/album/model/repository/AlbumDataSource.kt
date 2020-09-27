@@ -1,10 +1,8 @@
-package com.teste.album.model.repository.remote
+package com.teste.album.model.repository
 
 import com.teste.album.model.data.Album
 import retrofit2.Response
-import retrofit2.http.GET
 
-interface RetrofitAlbums {
-    @GET("albums")
+interface AlbumDataSource {
     suspend fun getAlbums(): Response<List<Album>>
 }

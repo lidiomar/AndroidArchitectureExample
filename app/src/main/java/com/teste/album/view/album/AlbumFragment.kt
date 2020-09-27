@@ -11,7 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.teste.album.R
 import com.teste.album.databinding.FragmentAlbumBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AlbumFragment: Fragment() {
 
     private val viewModel: AlbumViewModel by viewModels()
